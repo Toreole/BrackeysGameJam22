@@ -63,4 +63,5 @@ crashlytics-build.properties
 
 #krita temp files
 *.kra~
+*.png~
 
