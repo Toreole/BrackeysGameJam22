@@ -125,7 +125,7 @@ GameObject:
   m_Layer: 0
   m_Name: SmallDoor
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -189,7 +189,7 @@ MonoBehaviour:
   closedLocal: 0.333
   posSide: {fileID: 8456265131359491495}
   negSide: {fileID: 8456265129857628316}
-  duration: 1
+  duration: 0.8
   animCurve:
     serializedVersion: 2
     m_Curve:
@@ -214,6 +214,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  mLock: {fileID: 0}
 --- !u!1 &8456265131359491492
 GameObject:
   m_ObjectHideFlags: 0

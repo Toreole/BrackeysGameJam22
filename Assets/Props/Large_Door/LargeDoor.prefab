@@ -232,10 +232,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5859920188590220744}
   - component: {fileID: 812591954}
+  - component: {fileID: 812591955}
   m_Layer: 0
   m_Name: LargeDoor
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -273,7 +274,7 @@ MonoBehaviour:
   closedLocal: 0.58
   posSide: {fileID: 5859920188007859703}
   negSide: {fileID: 5859920187488358778}
-  duration: 1.5
+  duration: 1.2
   animCurve:
     serializedVersion: 2
     m_Curve:
@@ -298,3 +299,30 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  mLock: {fileID: 0}
+--- !u!61 &812591955
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5859920188590220745}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.00000029802322}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.3, y: 1.96}
+  m_EdgeRadius: 0
