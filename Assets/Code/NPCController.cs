@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class NPCController : MonoBehaviour
 {
@@ -9,10 +10,14 @@ public class NPCController : MonoBehaviour
     [SerializeField]
     private SpriteRenderer sprite;
 
-    private Transform playerFollow = null;
+    [SerializeField]
+    private AIPath pathFinder;
+
+    private PlayerMovement playerFollow = null;
     private List<NPCController> nearbyNPCs;
 
-    private Vector3 lastPlayerPos;
+    private int followId = -1;
+    private Vector3 lastPos;
     private float lastMoveTime = 0;
 
     private bool inConversation = false;
@@ -43,26 +48,30 @@ public class NPCController : MonoBehaviour
     {
         //self position for movement.
         Vector3 pos = transform.position;
+        Vector3 delta = pos - lastPos;
 
         //following player
         if (playerFollow)
         {
 
             //buffer some positions and deltas.
-            Vector3 playerPos = playerFollow.position;
-            
+            Vector3 followPos = playerFollow.GetFollowTarget(followId);
 
+            pathFinder.destination = followPos;
 
-            //update cache.
-            lastPlayerPos = playerPos;
+            sprite.flipX = followPos.x - pos.x < 0;
+
         }
 
-        if (transform.position - pos == Vector3.zero)
+        bool moving = delta != Vector3.zero;
+        animator.SetBool(anim_moving, moving);
+
+        if (!moving)
         {
             if (inConversation) 
                 FaceConvoPartner();
             //start conversation if not already in one and havent moved in some time.
-            else if (Time.time - lastMoveTime > 1.5f)
+            else if (Time.time - lastMoveTime > 2.2f)
             {
                 StartConversation();
             }
@@ -75,14 +84,18 @@ public class NPCController : MonoBehaviour
                 StopConversation();
             }
         }
+
+        //update cache.
+        lastPos = transform.position;
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.CompareTag("Player"))
+        if (collider.CompareTag("Player") && !playerFollow)
         {
             animator.SetTrigger(anim_surprise);
-            playerFollow = collider.transform;
+            playerFollow = collider.GetComponent<PlayerMovement>();
+            followId = playerFollow.RegisterFollower(transform);
         }
         //track nearby npcs.
         else if (collider.CompareTag("Friendly NPC"))

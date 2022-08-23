@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
 
     private static readonly int anim_movingBool = Animator.StringToHash("Moving");
 
+    private List<Transform> followers = new List<Transform>(10);
+
     void Start()
     {
         body = body ?? GetComponent<Rigidbody2D>();
@@ -33,5 +35,17 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetBool(anim_movingBool, input.sqrMagnitude > 0.01);
         renderer.flipX = input.x < 0;
+    }
+
+    public int RegisterFollower(Transform t)
+    {
+        int c = followers.Count;
+        followers.Add(t);
+        return c;
+    }
+
+    public Vector3 GetFollowTarget(int id)
+    {
+        return id == 0 ? transform.position : followers[id - 1].position;
     }
 }
