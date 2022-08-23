@@ -21,6 +21,9 @@ public class Lock : PlayerTriggerBase
 
     Coroutine animCoroutine;
 
+    public event System.Action OnUnlock;
+    bool isUnlocked = false;
+
     private void Start()
     {
         renderer.sprite = defaultSprite;
@@ -43,6 +46,12 @@ public class Lock : PlayerTriggerBase
             {
                 animCoroutine = StartCoroutine(DoAnim(successSprite));
                 audio.PlayOneShot(successClip);
+
+                if (!isUnlocked)
+                {
+                    OnUnlock();
+                    isUnlocked = true;
+                }
             }
             else
             {
