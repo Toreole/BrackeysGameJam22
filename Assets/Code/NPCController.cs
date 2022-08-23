@@ -119,6 +119,8 @@ public class NPCController : MonoBehaviour
         {
             //get a random conversation partner.
             int rn = Random.Range(0, nearbyNPCs.Count);
+            if (nearbyNPCs[rn].inConversation)
+                return;
             controllingConvo = true;
 
             conversationPartner = nearbyNPCs[rn];

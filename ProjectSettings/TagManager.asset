@@ -42,3 +42,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: DropShadow
+    uniqueID: 584007671
+    locked: 0
+  - name: Character
+    uniqueID: 3215732489
+    locked: 0
+  - name: Emote
+    uniqueID: 2168821693
+    locked: 0
