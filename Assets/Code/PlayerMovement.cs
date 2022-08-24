@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
     private static readonly int anim_movingBool = Animator.StringToHash("Moving");
 
-    private List<Transform> followers = new List<Transform>(10);
+    private List<NPCController> followers = new List<NPCController>(10);
 
     void Start()
     {
@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         renderer.flipX = input.x < 0;
     }
 
-    public int RegisterFollower(Transform t)
+    public int RegisterFollower(NPCController t)
     {
         int c = followers.Count;
         followers.Add(t);
@@ -46,6 +46,18 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector3 GetFollowTarget(int id)
     {
-        return id == 0 ? transform.position : followers[id - 1].position;
+        return id == 0 ? transform.position : followers[id - 1].transform.position;
+    }
+
+    public void UnregisterFollower(NPCController t)
+    {
+        if(followers.Contains(t))
+        {
+            followers.Remove(t);
+            for(int i = 0; i < followers.Count; i++)
+            {
+                followers[i].SetFollowerID(i);
+            }
+        }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class NPCController : MonoBehaviour
+public class NPCController : MonoBehaviour, IDamageable
 {
     [SerializeField]
     private Animator animator;
@@ -24,6 +24,8 @@ public class NPCController : MonoBehaviour
     private bool controllingConvo = false;
     private NPCController conversationPartner;
     private Coroutine conversationRoutine;
+
+    public System.Action<ERescueStatus> OnRescueStatusChanged;
 
     //animator properties.
     private static readonly int anim_moving = Animator.StringToHash("Moving");
@@ -94,8 +96,10 @@ public class NPCController : MonoBehaviour
         if (collider.CompareTag("Player") && !playerFollow)
         {
             animator.SetTrigger(anim_surprise);
+            //update rescue status.
+            OnRescueStatusChanged?.Invoke(ERescueStatus.BeingRescued);
             playerFollow = collider.GetComponent<PlayerMovement>();
-            followId = playerFollow.RegisterFollower(transform);
+            followId = playerFollow.RegisterFollower(this);
         }
         //track nearby npcs.
         else if (collider.CompareTag("Friendly NPC"))
@@ -110,6 +114,11 @@ public class NPCController : MonoBehaviour
     {
         if(collider.CompareTag("Friendly NPC"))
             nearbyNPCs.Remove(collider.GetComponent<NPCController>());
+    }
+
+    internal void SetFollowerID(int id)
+    {
+        followId = id;
     }
 
     private void StartConversation()
@@ -189,4 +198,10 @@ public class NPCController : MonoBehaviour
         conversationPartner = null;
     }
 
+    public void Damage()
+    {
+        playerFollow.UnregisterFollower(this);
+        gameObject.SetActive(false);
+        OnRescueStatusChanged?.Invoke(ERescueStatus.NpcDied);
+    }
 }
