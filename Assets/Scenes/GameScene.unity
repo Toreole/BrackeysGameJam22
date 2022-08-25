@@ -397,8 +397,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1129239627}
   - component: {fileID: 1129239626}
-  - component: {fileID: 1129239628}
   - component: {fileID: 1129239629}
+  - component: {fileID: 1129239630}
   m_Layer: 0
   m_Name: Escape_Zone
   m_TagString: Untagged
@@ -447,20 +447,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1129239628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1129239625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 591c8819d5350d34fb0b9d6c1a802a6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statusContainer: {fileID: 1535308805}
-  statusUIPrefab: {fileID: 6428034752137629573, guid: 2f66323e826c58546bb38fd48e8cc0e2, type: 3}
 --- !u!212 &1129239629
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -513,6 +499,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1129239630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129239625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 591c8819d5350d34fb0b9d6c1a802a6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statusContainer: {fileID: 1535308805}
+  statusUIPrefab: {fileID: 6428034752137629573, guid: 2f66323e826c58546bb38fd48e8cc0e2, type: 3}
+  npcMarkerPrefab: {fileID: 4629201557672897984, guid: 7943446639a836e4ba37b3f5827b3f45, type: 3}
+  zoneMarkerPrefab: {fileID: 4629201557672897984, guid: d4864e87b3e9c0642aa89dac79113594, type: 3}
+  canvas: {fileID: 1601933465}
+  camera: {fileID: 3960649624331845092}
 --- !u!1 &1243985313
 GameObject:
   m_ObjectHideFlags: 0
@@ -60027,6 +60031,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39c638be014195942906542dacb43555, type: 3}
+--- !u!20 &3960649624331845092 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 3960649624038265673, guid: 39c638be014195942906542dacb43555, type: 3}
+  m_PrefabInstance: {fileID: 3960649624331845091}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5859920189400829593
 PrefabInstance:
   m_ObjectHideFlags: 0
