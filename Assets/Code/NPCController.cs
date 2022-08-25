@@ -31,6 +31,7 @@ public class NPCController : MonoBehaviour, IDamageable
 
     //animator properties.
     private static readonly int anim_moving = Animator.StringToHash("Moving");
+    private static readonly int anim_dead = Animator.StringToHash("Dead");
 
     private static readonly int anim_like = Animator.StringToHash("Like");
     private static readonly int anim_dislike = Animator.StringToHash("Dislike");
@@ -95,7 +96,7 @@ public class NPCController : MonoBehaviour, IDamageable
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.CompareTag("Player") && !playerFollow)
+        if (collider.CompareTag("Player") && !playerFollow && Status != ERescueStatus.RescueFinal)
         {
             animator.SetTrigger(anim_surprise);
             //update rescue status.
@@ -204,16 +205,26 @@ public class NPCController : MonoBehaviour, IDamageable
     public void Damage()
     {
         playerFollow.UnregisterFollower(this);
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        playerFollow = null;
+        //disable all behavioural components.
+        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<Rigidbody2D>().simulated = false;
+        GetComponent<CircleCollider2D>().enabled = false;
+        this.enabled = false;
+        //change status.
         OnRescueStatusChanged?.Invoke(ERescueStatus.NpcDied);
         Status = ERescueStatus.NpcDied;
+        //start death animation.
+        animator.SetTrigger(anim_dead);
     }
 
     public void CompleteRescue()
     {
         OnRescueStatusChanged?.Invoke(ERescueStatus.RescueFinal);
         Status = ERescueStatus.RescueFinal;
-        gameObject.SetActive(false); //TODO: animation instead of simply deactivating.
+        //gameObject.SetActive(false); //TODO: animation instead of simply deactivating.
         playerFollow.UnregisterFollower(this);
+        playerFollow = null;
     }
 }

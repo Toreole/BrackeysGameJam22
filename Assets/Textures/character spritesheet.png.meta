@@ -658,7 +658,7 @@ TextureImporter:
         width: 6
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -666,6 +666,111 @@ TextureImporter:
       bones: []
       spriteID: 10c08563e66d7344780c436df6f316ed
       internalID: -1468016913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: character spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 103
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33bf02ea952fa094394d5364d195b9bd
+      internalID: 808203708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: character spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 103
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43dda0a4e67fb3a46b60c663c33e810e
+      internalID: 417717336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: character spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 103
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c0def30fdcef8645a79c16ae9c9a50f
+      internalID: -1793095798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: character spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 103
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dae18096683c6254990b731cb01f7110
+      internalID: 957380057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: character spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 103
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab1f85dcbd61f3a4792186c9618e2d91
+      internalID: 1098353804
       vertices: []
       indices: 
       edges: []
@@ -681,6 +786,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      character spritesheet_31: 1098353804
       character spritesheet_16: -1243113864
       character spritesheet_5: -392834267
       character spritesheet_1: -881669681
@@ -700,14 +806,18 @@ TextureImporter:
       character spritesheet_11: -1750938248
       character spritesheet_8: 1459039343
       character spritesheet_12: 671374128
+      character spritesheet_27: 808203708
       character spritesheet_9: -1491094114
+      character spritesheet_28: 417717336
       character spritesheet_0: -1491392342
       character spritesheet_24: 2082791598
+      character spritesheet_29: -1793095798
       character spritesheet_25: -1075015709
       character spritesheet_10: -2066316854
       character spritesheet_18: 1647670740
       character spritesheet_15: -335555738
       character spritesheet_20: 1987186436
+      character spritesheet_30: 957380057
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
