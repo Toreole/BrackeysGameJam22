@@ -49,6 +49,11 @@ public class RescueObjectiveManager : MonoBehaviour
     {
         for(int i = 0; i < npcs.Length; i++)
         {
+            if (npcs[i].Status == ERescueStatus.RescueFinal || npcs[i].Status == ERescueStatus.NpcDied)
+            {
+                npcMarkers[i].gameObject.SetActive(false);
+                continue;
+            }
             Vector3 pos = npcs[i].transform.position;
             Vector3 screenPos = camera.WorldToScreenPoint(pos);
             screenPos.x = Mathf.Clamp(screenPos.x, 0, 1920);

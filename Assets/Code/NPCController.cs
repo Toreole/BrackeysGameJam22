@@ -25,6 +25,8 @@ public class NPCController : MonoBehaviour, IDamageable
     private NPCController conversationPartner;
     private Coroutine conversationRoutine;
 
+    public ERescueStatus Status { get; private set; } = ERescueStatus.None;
+
     public System.Action<ERescueStatus> OnRescueStatusChanged;
 
     //animator properties.
@@ -98,6 +100,7 @@ public class NPCController : MonoBehaviour, IDamageable
             animator.SetTrigger(anim_surprise);
             //update rescue status.
             OnRescueStatusChanged?.Invoke(ERescueStatus.BeingRescued);
+            Status = ERescueStatus.BeingRescued;
             playerFollow = collider.GetComponent<PlayerMovement>();
             followId = playerFollow.RegisterFollower(this);
         }
@@ -203,11 +206,13 @@ public class NPCController : MonoBehaviour, IDamageable
         playerFollow.UnregisterFollower(this);
         gameObject.SetActive(false);
         OnRescueStatusChanged?.Invoke(ERescueStatus.NpcDied);
+        Status = ERescueStatus.NpcDied;
     }
 
     public void CompleteRescue()
     {
         OnRescueStatusChanged?.Invoke(ERescueStatus.RescueFinal);
+        Status = ERescueStatus.RescueFinal;
         gameObject.SetActive(false); //TODO: animation instead of simply deactivating.
         playerFollow.UnregisterFollower(this);
     }
