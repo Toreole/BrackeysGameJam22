@@ -92,4 +92,5 @@ MonoBehaviour:
   img: {fileID: 6428034752137629579}
   defaultSprite: {fileID: -286980675, guid: af55a91a620b2c24eb4bb62b37d264a5, type: 3}
   rescuedSprite: {fileID: 2082791598, guid: af55a91a620b2c24eb4bb62b37d264a5, type: 3}
+  rescueCompleteSprite: {fileID: -1468016913, guid: af55a91a620b2c24eb4bb62b37d264a5, type: 3}
   deadSprite: {fileID: -1075015709, guid: af55a91a620b2c24eb4bb62b37d264a5, type: 3}

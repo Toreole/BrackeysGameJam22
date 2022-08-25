@@ -34,7 +34,7 @@ public class DebugCountdown : MonoBehaviour
         int seconds = (int)(timeRemaining % 60f);
         int decis = ((int)(timeRemaining * 100) % 100);
 
-        strBuilder.Append(minutes).Append(':').Append(seconds.ToString("00")).Append('.').Append(decis.ToString("00"));
+        strBuilder.Append(minutes).Append(':').Append(seconds.ToString("00"));//.Append('.').Append(decis.ToString("00"));
         text.text = strBuilder.ToString();
     }
 }

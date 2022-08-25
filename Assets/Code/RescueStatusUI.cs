@@ -9,7 +9,7 @@ public class RescueStatusUI : MonoBehaviour
     private Image img;
 
     [SerializeField]
-    private Sprite defaultSprite, rescuedSprite, deadSprite;
+    private Sprite defaultSprite, rescuedSprite, rescueCompleteSprite, deadSprite;
 
     public ERescueStatus Status { get; private set; }
 
@@ -23,6 +23,8 @@ public class RescueStatusUI : MonoBehaviour
                 img.sprite = defaultSprite;
                 break;
             case ERescueStatus.RescueFinal:
+                img.sprite = rescueCompleteSprite;
+                break;
             case ERescueStatus.BeingRescued:
                 img.sprite = rescuedSprite;
                 break;

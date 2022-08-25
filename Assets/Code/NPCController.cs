@@ -204,4 +204,11 @@ public class NPCController : MonoBehaviour, IDamageable
         gameObject.SetActive(false);
         OnRescueStatusChanged?.Invoke(ERescueStatus.NpcDied);
     }
+
+    public void CompleteRescue()
+    {
+        OnRescueStatusChanged?.Invoke(ERescueStatus.RescueFinal);
+        gameObject.SetActive(false); //TODO: animation instead of simply deactivating.
+        playerFollow.UnregisterFollower(this);
+    }
 }

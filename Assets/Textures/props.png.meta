@@ -600,7 +600,7 @@ TextureImporter:
         width: 7
         height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -608,6 +608,69 @@ TextureImporter:
       bones: []
       spriteID: 874332a62f7849648bdf3fb33e3a976c
       internalID: -287582607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props_21
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 105
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 2, y: 2, z: 2, w: 2}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8c08df87b9cb45449f9fbb3b5d61f18
+      internalID: -1207022534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props_22
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 106
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b2c356dbb511e94ebbd4240b4108921
+      internalID: -96567050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props_23
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 106
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94bce830e6b9fc542949a5a4628cb324
+      internalID: 1560672911
       vertices: []
       indices: 
       edges: []
@@ -626,7 +689,9 @@ TextureImporter:
       props_6: -1255705974
       props_4: -94275487
       props_8: 1806754025
+      props_21: -1207022534
       props_1: 1181456820
+      props_23: 1560672911
       props_9: 1219659255
       props_18: 1066821774
       props_11: -1393445297
@@ -640,6 +705,7 @@ TextureImporter:
       props_20: -287582607
       props_13: 254743401
       props_15: 1499231297
+      props_22: -96567050
       props_10: 1199337750
       props_17: 249947764
       props_7: 60299747
