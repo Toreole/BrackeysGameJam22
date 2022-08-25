@@ -25,6 +25,12 @@ public class RescueObjectiveManager : MonoBehaviour
     private int rescuedNPCs = 0;
     private int deadNPCs = 0;
 
+    /// <summary>
+    /// 1. rescued npcs (amount)
+    /// 2. deadNPCs (amount)
+    /// </summary>
+    public System.Action<int, int> OnNPCsDeadOrRescued;
+
     private void Start()
     {
         //this is bad but im lazy. sue me.
@@ -79,7 +85,7 @@ public class RescueObjectiveManager : MonoBehaviour
 
         if(rescuedNPCs + deadNPCs == npcs.Length)
         {
-            throw new System.NotImplementedException("Complete Level");
+            OnNPCsDeadOrRescued?.Invoke(rescuedNPCs, deadNPCs);
         }
 
     }
