@@ -87,6 +87,8 @@ public class LevelManager : MonoBehaviour
 
     private void OnLevelComplete(int rescued, int dead)
     {
+        if (levelOver)
+            return;
         Game.MarkLevelComplete(this.levelID);
         levelOver = true;
         bool allRescued = dead == 0;

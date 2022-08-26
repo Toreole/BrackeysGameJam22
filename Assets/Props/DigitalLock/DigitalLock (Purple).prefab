@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: -1079234807
   m_SortingLayer: 2
   m_SortingOrder: -1
-  m_Sprite: {fileID: -518771004, guid: f1dfcc97973b31e48a25f94941efccf9, type: 3}
+  m_Sprite: {fileID: 1499231297, guid: f1dfcc97973b31e48a25f94941efccf9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -157,14 +157,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2afca68d0b7b0344b925c781891dca06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSprite: {fileID: -518771004, guid: f1dfcc97973b31e48a25f94941efccf9, type: 3}
+  defaultSprite: {fileID: 1499231297, guid: f1dfcc97973b31e48a25f94941efccf9, type: 3}
   successSprite: {fileID: 254743401, guid: f1dfcc97973b31e48a25f94941efccf9, type: 3}
   failureSprite: {fileID: -1636127208, guid: f1dfcc97973b31e48a25f94941efccf9, type: 3}
   renderer: {fileID: 228592695872482123}
   audio: {fileID: 1921186448}
   successClip: {fileID: 8300000, guid: 31957d67737e5564880d1e398f8d1eb6, type: 3}
   failureClip: {fileID: 8300000, guid: c909c7fcc6b51fa44b45b7df8833e0df, type: 3}
-  requiredKey: 1
+  requiredKey: 4
 --- !u!82 &1921186448
 AudioSource:
   m_ObjectHideFlags: 0

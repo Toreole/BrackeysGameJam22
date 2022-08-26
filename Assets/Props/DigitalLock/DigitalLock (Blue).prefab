@@ -164,7 +164,7 @@ MonoBehaviour:
   audio: {fileID: 1921186448}
   successClip: {fileID: 8300000, guid: 31957d67737e5564880d1e398f8d1eb6, type: 3}
   failureClip: {fileID: 8300000, guid: c909c7fcc6b51fa44b45b7df8833e0df, type: 3}
-  requiredKey: 1
+  requiredKey: 8
 --- !u!82 &1921186448
 AudioSource:
   m_ObjectHideFlags: 0
