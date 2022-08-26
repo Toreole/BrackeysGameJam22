@@ -49,6 +49,8 @@ public class LevelManager : MonoBehaviour
         nextLevelButton.SetActive(!string.IsNullOrEmpty(nextLevel));
 
         introTextTransform.DOScale(Vector3.zero, 0.75f).SetDelay(2.5f);
+
+        Player.Current.OnPlayerDied += OnPlayerDied;
     }
 
     private void Update()
@@ -117,6 +119,18 @@ public class LevelManager : MonoBehaviour
         levelOver = true;
         ShowEndScreen();
         endingText.text = "You ran out of time!";
+    }
+
+    private void OnPlayerDied()
+    {
+        endingScreen.SetActive(true);
+        RectTransform rt = endingScreen.transform as RectTransform;
+
+        rt.DOJumpAnchorPos(new Vector2(0, 0), 150, 1, 1f).Prepend(rt.DOAnchorPosY(0, 0.8f).SetDelay(1.25f)).Append(rt.DOJumpAnchorPos(new Vector2(0, 0), 50, 1, 0.7f));
+
+        levelOver = true;
+        //ShowEndScreen();
+        endingText.text = "You died! Be more careful!";
     }
 
     public void GoToMenu()
