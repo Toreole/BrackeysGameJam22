@@ -13180,6 +13180,7 @@ MonoBehaviour:
   - {fileID: 1953079537}
   levelScenes:
   - GameScene
+  - Level_2
 --- !u!1 &1519444802
 GameObject:
   m_ObjectHideFlags: 0
