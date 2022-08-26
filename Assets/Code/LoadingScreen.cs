@@ -100,6 +100,17 @@ public class LoadingScreen : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScreen", UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 
+    public static void GoToScene(string scene)
+    {
+        monoInstance.StartCoroutine(LoadScene(scene));
+    }
+
+    public static void GoToScene(int index)
+    {
+        if (SceneManager.GetSceneByBuildIndex(index).IsValid())
+            monoInstance.StartCoroutine(LoadScene(SceneManager.GetSceneByBuildIndex(index).name));
+    }
+
     public static IEnumerator LoadScene(string scene)
     {
         LoadingScreen.Show();

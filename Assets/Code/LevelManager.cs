@@ -9,6 +9,8 @@ using System.Text;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField]
+    private int levelID = 0;
+    [SerializeField]
     private RescueObjectiveManager rescueObjective;
     [SerializeField]
     private RectTransform introTextTransform;
@@ -24,6 +26,13 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI endingText;
 
+    [SerializeField]
+    private string menuScene;
+    [SerializeField]
+    private string nextLevel;
+    [SerializeField]
+    private GameObject nextLevelButton;
+
     private StringBuilder strBuilder;
 
     private float remainingTime = 0f;
@@ -36,6 +45,8 @@ public class LevelManager : MonoBehaviour
         strBuilder = new StringBuilder();
         rescueObjective.OnNPCsDeadOrRescued += OnLevelComplete;
         remainingTime = timeForCompletion;
+
+        nextLevelButton.SetActive(!string.IsNullOrEmpty(nextLevel));
 
         introTextTransform.DOScale(Vector3.zero, 0.75f).SetDelay(2.5f);
     }
@@ -76,6 +87,7 @@ public class LevelManager : MonoBehaviour
 
     private void OnLevelComplete(int rescued, int dead)
     {
+        Game.MarkLevelComplete(this.levelID);
         levelOver = true;
         bool allRescued = dead == 0;
         bool allDead = rescued == 0;
@@ -107,11 +119,11 @@ public class LevelManager : MonoBehaviour
 
     public void GoToMenu()
     {
-
+        LoadingScreen.GoToScene(menuScene);
     }
 
     public void GoToNextLevel()
     {
-
+        LoadingScreen.GoToScene(nextLevel);
     }
 }
