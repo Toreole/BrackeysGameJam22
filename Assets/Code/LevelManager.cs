@@ -28,16 +28,22 @@ public class LevelManager : MonoBehaviour
 
     private float remainingTime = 0f;
 
+    private bool levelOver = false;
+
     private void Start()
     {
         DOTween.Init();
         strBuilder = new StringBuilder();
         rescueObjective.OnNPCsDeadOrRescued += OnLevelComplete;
         remainingTime = timeForCompletion;
+
+        introTextTransform.DOScale(Vector3.zero, 0.75f).SetDelay(2.5f);
     }
 
     private void Update()
     {
+        if (levelOver)
+            return;
         remainingTime -= Time.deltaTime;
         SetTimeString();
 
@@ -64,12 +70,47 @@ public class LevelManager : MonoBehaviour
         timerText.text = strBuilder.ToString();
     }
 
+    readonly string[] winMessages = { "Fantastic job!", "Perfect!!!", "Well done!", "Congratulations!" };
+    readonly string[] failMessages = { "You monster.", "Congratulations.", "We'll remember this.", "Horribly done." };
+    readonly string[] mixedMessages = { "That's something.", "You tried.", "Decent work.", "We've all been there." };
+
     private void OnLevelComplete(int rescued, int dead)
+    {
+        levelOver = true;
+        bool allRescued = dead == 0;
+        bool allDead = rescued == 0;
+        string tempText = $"{rescued}/{rescued + dead} rescued.\n";
+        if (allRescued)
+            tempText += winMessages[Random.Range(0, winMessages.Length)];
+        else if (allDead)
+            tempText += failMessages[Random.Range(0, failMessages.Length)];
+        else
+            tempText += mixedMessages[Random.Range(0, mixedMessages.Length)];
+        endingText.text = tempText;
+        ShowEndScreen();
+    }
+
+    private void ShowEndScreen()
+    {
+        endingScreen.SetActive(true);
+        RectTransform rt = endingScreen.transform as RectTransform;
+
+        rt.DOJumpAnchorPos(new Vector2(0, 0), 150, 1, 1f).Prepend(rt.DOAnchorPosY(0, 0.8f)).Append(rt.DOJumpAnchorPos(new Vector2(0, 0), 50, 1, 0.7f));
+    }
+
+    private void OnLevelFailed()
+    {
+        levelOver = true;
+        ShowEndScreen();
+        endingText.text = "You ran out of time!";
+    }
+
+    public void GoToMenu()
     {
 
     }
 
-    private void OnLevelFailed()
+    public void GoToNextLevel()
     {
 
     }

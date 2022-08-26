@@ -94,7 +94,9 @@ public class RescueObjectiveManager : MonoBehaviour
     {
         if(collider.CompareTag("Friendly NPC"))
         {
-            collider.GetComponent<NPCController>().CompleteRescue();
+            var npc = collider.GetComponent<NPCController>();
+            if(npc.Status != ERescueStatus.RescueFinal)
+                collider.GetComponent<NPCController>().CompleteRescue();
         }
     }
 }
