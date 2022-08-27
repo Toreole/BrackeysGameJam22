@@ -25,6 +25,8 @@ public class PlayerGunController : MonoBehaviour
     private AudioClip shootClip;
     [SerializeField]
     private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip pickupClip;
 
     private RaycastHit2D[] hitBuffer = new RaycastHit2D[10];
 
@@ -74,9 +76,11 @@ public class PlayerGunController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            ContactFilter2D filter = new ContactFilter2D();
-            filter.layerMask = hitMask;
-            hitBuffer = Physics2D.CircleCastAll(shootTransform.position, 0.35f, gunTransform.right * direction, 2.5f, hitMask);
+            //ContactFilter2D filter = new ContactFilter2D();
+            //filter.layerMask = hitMask;
+            Vector2 castDirection = gunTransform.right * direction;
+            Vector2 castPos = shootTransform.position;
+            hitBuffer = Physics2D.CircleCastAll(shootTransform.position, 0.35f, castDirection, 2.5f, hitMask);
             int found = hitBuffer.Length;//hitShape.Cast(gunTransform.right, filter, hitBuffer, 0.1f);
             LoadedAmmo--;
             audioSource.PlayOneShot(shootClip);
@@ -84,6 +88,8 @@ public class PlayerGunController : MonoBehaviour
             for (int i = 0; i < found; i++)
             {
                 var hit = hitBuffer[i];
+                if ((direction > 0 && castPos.x > hit.point.x ) || (direction < 0 && castPos.x < hit.point.x))
+                    continue;
                 var dm = hit.collider.GetComponent<IDamageable>();
                 if (dm != null)
                 {
@@ -102,6 +108,7 @@ public class PlayerGunController : MonoBehaviour
 
     public void Wakeup()
     {
+        audioSource.PlayOneShot(pickupClip);
         this.enabled = true;
         ammoHUD.SetActive(true);
         gunTransform.gameObject.SetActive(true);

@@ -362,6 +362,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1056578218, guid: fcf77ec8f7a224f41bc5ca12a12a7273, type: 3}
+      propertyPath: pickupClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 16b7e6500ae35d143bcb7d2fa4f77ba3, type: 3}
     - target: {fileID: 3704494301392339466, guid: fcf77ec8f7a224f41bc5ca12a12a7273, type: 3}
       propertyPath: m_Name
       value: LevelTemplateObjects
