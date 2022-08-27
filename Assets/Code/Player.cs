@@ -12,6 +12,8 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField]
     private AudioClip pickupClip;
 
+    private bool isDead = false;
+
     private static readonly int anim_dead = Animator.StringToHash("IsDead");
 
     private EKey collectedKeys = EKey.NONE_OR_DEFAULT;
@@ -32,6 +34,9 @@ public class Player : MonoBehaviour, IDamageable
 
     public void Damage()
     {
+        if (isDead)
+            return;
+        isDead = true;
         animator.SetBool(anim_dead, true);
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GetComponent<PlayerMovement>().enabled = false;
