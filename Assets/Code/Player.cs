@@ -7,13 +7,20 @@ public class Player : MonoBehaviour, IDamageable
 {
     [SerializeField]
     private Animator animator;
+    [SerializeField]
+    private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip pickupClip;
 
     private static readonly int anim_dead = Animator.StringToHash("IsDead");
 
     private EKey collectedKeys = EKey.NONE_OR_DEFAULT;
 
-    public void AddKey(EKey key) => collectedKeys |= key;
-
+    public void AddKey(EKey key)
+    {
+        audioSource.PlayOneShot(pickupClip);
+        collectedKeys |= key;
+    }
     public static Player Current { get; private set; }
 
     public event System.Action OnPlayerDied;

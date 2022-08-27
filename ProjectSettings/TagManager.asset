@@ -15,8 +15,8 @@ TagManager:
   - Obstacles
   - Friendly NPC
   - Player
-  - 
-  - 
+  - Damageables
+  - IGNORE_ALL
   - 
   - 
   - 
