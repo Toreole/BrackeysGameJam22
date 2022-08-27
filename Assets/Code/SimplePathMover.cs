@@ -37,7 +37,7 @@ public class SimplePathMover : MonoBehaviour
     {
         if(wait)
         {
-            if (Time.time - arrivalTime <= endWait)
+            if (Time.time - arrivalTime >= endWait)
                 wait = false;
             return;
         }
