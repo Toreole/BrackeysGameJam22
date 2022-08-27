@@ -366,6 +366,10 @@ PrefabInstance:
       propertyPath: levelID
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1468563951592573645, guid: fcf77ec8f7a224f41bc5ca12a12a7273, type: 3}
+      propertyPath: nextLevel
+      value: Level_4
+      objectReference: {fileID: 0}
     - target: {fileID: 3704494301392339466, guid: fcf77ec8f7a224f41bc5ca12a12a7273, type: 3}
       propertyPath: m_Name
       value: LevelTemplateObjects
