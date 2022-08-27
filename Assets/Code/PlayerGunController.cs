@@ -84,11 +84,12 @@ public class PlayerGunController : MonoBehaviour
             int found = hitBuffer.Length;//hitShape.Cast(gunTransform.right, filter, hitBuffer, 0.1f);
             LoadedAmmo--;
             audioSource.PlayOneShot(shootClip);
-            Debug.Log($"Found colliders: {found}");
+            //Debug.Log($"Found colliders: {found}");
             for (int i = 0; i < found; i++)
             {
                 var hit = hitBuffer[i];
-                if ((direction > 0 && castPos.x > hit.point.x ) || (direction < 0 && castPos.x < hit.point.x))
+                var hitPos = hit.transform.position;
+                if ((direction > 0 && castPos.x > hitPos.x ) || (direction < 0 && castPos.x < hitPos.x))
                     continue;
                 var dm = hit.collider.GetComponent<IDamageable>();
                 if (dm != null)
