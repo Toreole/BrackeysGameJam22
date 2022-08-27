@@ -142,4 +142,9 @@ public class LevelManager : MonoBehaviour
     {
         LoadingScreen.GoToScene(nextLevel);
     }
+
+    public void RetryLevel()
+    {
+        LoadingScreen.GoToScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+    }
 }

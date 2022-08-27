@@ -545,3 +545,4 @@ MonoBehaviour:
   beamRenderer: {fileID: 7891921009358311302}
   rightStation: {fileID: 8692626129354070614}
   leftStation: {fileID: 4401515385681404794}
+  optionalLock: {fileID: 0}

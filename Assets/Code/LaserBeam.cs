@@ -12,6 +12,8 @@ public class LaserBeam : MonoBehaviour, IDamageable
     private SpriteRenderer beamRenderer;
     [SerializeField]
     private Transform rightStation, leftStation;
+    [SerializeField]
+    private Lock optionalLock;
 
     private void OnValidate()
     {
@@ -33,6 +35,10 @@ public class LaserBeam : MonoBehaviour, IDamageable
     void Start()
     {
         GetComponent<Animator>().enabled = animated;
+        if(optionalLock)
+        {
+            optionalLock.OnUnlock += Damage;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
