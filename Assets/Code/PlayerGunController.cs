@@ -20,13 +20,13 @@ public class PlayerGunController : MonoBehaviour
     [SerializeField]
     private LayerMask hitMask;
     [SerializeField]
-    private PolygonCollider2D hitShape;
-    [SerializeField]
     private AudioClip shootClip;
     [SerializeField]
     private AudioSource audioSource;
     [SerializeField]
     private AudioClip pickupClip;
+    [SerializeField]
+    private ParticleSystem particles;
 
     private RaycastHit2D[] hitBuffer = new RaycastHit2D[10];
 
@@ -84,6 +84,7 @@ public class PlayerGunController : MonoBehaviour
             int found = hitBuffer.Length;//hitShape.Cast(gunTransform.right, filter, hitBuffer, 0.1f);
             LoadedAmmo--;
             audioSource.PlayOneShot(shootClip);
+            particles.Emit(6); // a little burst of particles.
             //Debug.Log($"Found colliders: {found}");
             for (int i = 0; i < found; i++)
             {

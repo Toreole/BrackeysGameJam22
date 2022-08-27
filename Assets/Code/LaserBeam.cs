@@ -37,6 +37,8 @@ public class LaserBeam : MonoBehaviour, IDamageable
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        if (collider.isTrigger)
+            return;
         IDamageable dm = collider.GetComponent<IDamageable>();
         if (dm != null)
             dm.Damage();
